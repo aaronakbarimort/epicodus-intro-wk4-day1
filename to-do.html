@@ -6,40 +6,33 @@
     <script src="js/jquery-3.3.1.js"></script>
     <script src="js/to-do-scripts.js"></script>
     <meta charset="utf-8">
-    <title></title>
+    <title>To Do List</title>
   </head>
   <body>
     <div class="container">
+      <h1>To Do List</h1>
       <div class="row">
         <div class="col-6-md">
-
           <!--Begin Form-->
-          <form id="taskInput">
+          <form>
             <div class="form-group">
-              <label for="taskName">What Task do you need to complete:</label>
-              <input id="taskName" class="form-control" type="text">
+              <label for="task-title">Task:</label>
+              <input id="task-title" class="form-control" type="text" required>
             </div>
             <div class="form-group">
-              <label for="dueDate">When do you need to complete your task:</label>
-              <input id="dueDate" class="form-control" type="text">
+              <label for="complete-by">Complete By:</label>
+              <input id="complete-by" class="form-control" type="date">
             </div>
             <div class="form-group">
-              <label for="instructions">Are there any special instructions to complete your task:</label>
-              <input id="instructions" class="form-control" type="text">
+              <label for="notes">Notes:</label>
+              <input id="notes" class="form-control" type="text">
             </div>
             <button type="submit" class="btn btn-info">Submit</button>
           </form>
           <!--End form-->
-
-          <!--Task List Begin-->
-          <div id="taskList">
-
-          </div>
-          <!--Task List Ends-->
         </div>
-
         <!--Task Show Begins-->
-        <div class="col-md-6" id="taskShow">
+        <div id="task-panel" class="col-md-6 display-none">
           <h2></h2>
           <ul>
 
@@ -47,8 +40,20 @@
           <button type="click" class="btn btn-info" id="done">Done</button>
         </div>
         <!--Task Show Ends-->
-
       </div>
+      <table id="task-list" class="table">
+        <thead>
+          <tr>
+            <th scope="col"></th>
+            <th scope="col">TASK</th>
+            <th scope="col">COMPLETE BY</th>
+            <th scope="col">NOTES</th>
+            <th scope="col"></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
     </div>
   </body>
 </html>

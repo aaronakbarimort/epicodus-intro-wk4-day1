@@ -1,31 +1,38 @@
-//Business Logic
-function Task(name, date, instructions) {
-  this.taskName = name;
-  this.dueDate = date;
-  this.instructions = instructions;
+// Business Logic
+function Task(task, date, notes) {
+  this.task = task;
+  this.completeBy = date;
+  this.notes = notes;
 }
 
 $(document).ready(function() {
-  $("form#taskInput").submit(function(event) {
+  $("form").submit(function(event) {
     event.preventDefault();
 
-    var taskName = $("input#taskName").val();
-    var dueDate = $("input#dueDate").val();
-    var instructions = $("input#instructions").val();
+    var task = $("input#task-title").val();
+    var completeBy = $("input#complete-by").val();
+    var notes = $("input#notes").val();
 
-    var newTask = new Task(taskName, dueDate, instructions);
+    var newTask = new Task(task, completeBy, notes);
 
-    $("#taskList").append("<p><span class='task'>" + newTask.taskName + "</span></p>");
+    $("#task-list tbody").append("<tr class='task'><td class='check'>&otimes;</td><td>" + newTask.task + "</td><td>" + newTask.completeBy + "</td><td>" + newTask.notes + "</td></tr>");
 
-    $(".task").last().click(function () {
-      $("#taskShow h2").text(newTask.taskName);
-      $("#taskShow ul").append("<li>" + newTask.dueDate + "</li>");
-      $("#taskShow ul").append("<li>" + newTask.instructions + "</li>");
-      $("#taskShow").show();
-      $("#done").click(function() {
-        $("#taskShow").hide();
-        $(".task").addClass("strike");
-      });
+    $(".task").fadeIn();
+
+    $(".check").last().click(function() {
+      $(this).parent().toggleClass("done");
     });
+
+    // $(".task").last().click(function () {
+    //   $("#task-panel h2").text(newTask.task);
+    //   $("#task-panel ul").append("<li>" + newTask.completeBy + "</li>");
+    //   $("#task-panel ul").append("<li>" + newTask.notes + "</li>");
+    //   $("#task-panel").show();
+    //   $("#done").click(function() {
+    //     $("#task-panel").hide();
+    //     $("#task-panel ul").empty();
+    //     $(".task").addClass("strike");
+    //   });
+    // });
   });
 });

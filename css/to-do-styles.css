@@ -1,13 +1,25 @@
-.task {
-  color: Blue;
+#task-list {
+  margin-top: 25px;
+}
+
+.check {
   cursor: pointer;
 }
 
-.task:hover {
-  text-decoration: underline;
+.done {
+  background-color: #acecac;
+  text-decoration: line-through;
 }
 
-#taskShow {
+.done td {
+  text-decoration: line-through;
+}
+
+.task {
+  display-none;
+}
+
+.display-none {
   display: none;
 }
 
